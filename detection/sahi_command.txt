@@ -1,0 +1,10 @@
+sahi predict \
+--slice_width 1024 \
+--slice_height 1024 \
+--overlap_height_ratio 0.2 \
+--overlap_width_ratio 0.2 \
+--model_confidence_threshold 0.2 \
+--source /mnt/SSD1TB/TACR_TREND/data/tomato_row/tomato360/data/ \
+--dataset_json_path /mnt/SSD1TB/TACR_TREND/data/tomato_row/tomato360/v2.1/5-fold/fold-0/test-oneclass.json \
+--model_path /mnt/SSD1TB/TACR_TREND/models/tomato_row/360ann_v2.1_tood_r50_attn0010-dcn_fpn_1x/fold-0/epoch_12.pth \
+--model_config_path /mnt/SSD1TB/TACR_TREND/models/tomato_row/360ann_v2.1_tood_r50_attn0010-dcn_fpn_1x/fold-0/tood_r50_attn0010-dcn_fpn_1x.py
