@@ -1,7 +1,8 @@
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = '/mnt/SSD1TB/TACR_TREND/data/tomato_row/tomato360/cuts/'#'/mnt/SSD1TB/TACR_TREND/data/tomato_row/tomato360/cut_2042x2042_masks/'
-classes = ('tomato')
+data_root = '/mnt/SSD1TB/TACR_TREND/data/tomato_row/tomato360/cut_2042x2042_masks/'
+# data_root = '/mnt/SSD1TB/TACR_TREND/data/tomato_row/tomato360/cuts/'#
+classes = ('tomato',)
 backend_args = None
 
 
@@ -31,8 +32,10 @@ train_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         metainfo=dict(classes=classes),
-        data_root=data_root + 'train_images_512_02/', #'train_images_2042_02/',
-        ann_file=data_root + 'train_512_02-oneclass.json', #'train_2042_02.json',
+        # data_root=data_root + 'train_images_512_02/', #'train_images_2042_02/',
+        data_root=data_root + 'train_images_2042_02/',
+        # ann_file=data_root + 'train_512_02-oneclass.json', #'train_2042_02.json',
+        ann_file=data_root + 'train_2042_02-oneclass.json',
         data_prefix=dict(img=''),
         pipeline=train_pipeline))
 val_dataloader = dict(
@@ -43,8 +46,10 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         metainfo=dict(classes=classes),
-        data_root=data_root + 'val_images_512_02/', #'val_images_2042_02/',
-        ann_file=data_root + 'val_512_02-oneclass.json', #'val_2042_02.json',
+        # data_root=data_root + 'val_images_512_02/', #'val_images_2042_02/',
+        data_root=data_root + 'val_images_2042_02/',
+        # ann_file=data_root + 'val_512_02-oneclass.json', #'val_2042_02.json',
+        ann_file=data_root + 'val_2042_02-oneclass.json',
         data_prefix=dict(img=''),
         pipeline=test_pipeline))
 test_dataloader = dict(
@@ -55,20 +60,24 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         metainfo=dict(classes=classes),
-        data_root=data_root + 'test_images_512_02/', #'test_images_2042_02/',
-        ann_file=data_root + 'test_512_02-oneclass.json', #'test_2042_02.json',
+        # data_root=data_root + 'test_images_512_02/', #'test_images_2042_02/',
+        data_root=data_root + 'test_images_2042_02/',
+        # ann_file=data_root + 'test_512_02-oneclass.json', #'test_2042_02.json',
+        ann_file=data_root + 'test_2042_02-oneclass.json',
         data_prefix=dict(img=''),
         pipeline=test_pipeline))
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'val_512_02-oneclass.json', #'val_2042_02.json',
+    # ann_file=data_root + 'val_512_02-oneclass.json', #'val_2042_02.json',
+    ann_file=data_root + 'val_2042_02-oneclass.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
 test_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'test_512_02-oneclass.json', #'test_2042_02.json',
+    # ann_file=data_root + 'test_512_02-oneclass.json', #'test_2042_02.json',
+    ann_file=data_root + 'test_2042_02-oneclass.json',
     metric='bbox',
     format_only=False,
     classwise=True,
